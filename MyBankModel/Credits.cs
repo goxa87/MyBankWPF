@@ -19,7 +19,7 @@ namespace MyBankModel
         public System.DateTime Date { get; set; }
         public int Loan { get; set; }
         public string Target { get; set; }
-        public string VipBonus { get; set; }
+        public int VipBonus { get; set; }
         public int ClientId { get; set; }
     }
 }

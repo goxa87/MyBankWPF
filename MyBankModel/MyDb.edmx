@@ -28,7 +28,7 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Loan" Type="int" Nullable="false" />
           <Property Name="Target" Type="nvarchar" MaxLength="200" />
-          <Property Name="VipBonus" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="VipBonus" Type="int" Nullable="false" />
           <Property Name="ClientId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Firms">
@@ -88,7 +88,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Loan" Type="Int32" Nullable="false" />
           <Property Name="Target" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="VipBonus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="VipBonus" Type="Int32" Nullable="false" />
           <Property Name="ClientId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Firms">
