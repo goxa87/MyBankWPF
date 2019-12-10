@@ -1,0 +1,113 @@
+CREATE TABLE [dbo].[Clients] (
+    [Id]           INT            IDENTITY (1, 1) NOT NULL,
+    [Name]         NVARCHAR (100) NOT NULL,
+    [LastName]     NCHAR (100)    NOT NULL,
+    [Balance]      INT            NOT NULL,
+    [Deposit]      INT            NOT NULL,
+    [Tax]          FLOAT (53)     NOT NULL,
+    [Vip]          BIT            DEFAULT ((0)) NOT NULL,
+    [DepositBonus] INT            DEFAULT ((0)) NOT NULL,
+    [Comment]      NVARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Firms]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Balance] INT NOT NULL, 
+    [Deposit] INT NOT NULL, 
+    [Tax] FLOAT NOT NULL, 
+    [Adress] NVARCHAR(200) NOT NULL
+
+
+)
+
+CREATE TABLE [dbo].[Credits]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Sum] INT NOT NULL, 
+    [Date] DATETIME NOT NULL, 
+    [Laon] INT NOT NULL, 
+    [Target] NVARCHAR(200) NULL, 
+    [VipBonus] NCHAR(10) NOT NULL DEFAULT 0,
+	[ClientId] INT NOT NULL
+)
+
+CREATE TABLE [dbo].[Lizings] (
+    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [Sum]      INT            NOT NULL,
+    [Date]     DATETIME       NOT NULL,
+    [Loan]     INT            NOT NULL,
+    [Target]   NVARCHAR (100) NULL,
+    [ComeBack] INT            DEFAULT ((0)) NOT NULL,
+    [FirmId]   NCHAR (10)     NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Петр',N'Петров',15000,15000,10,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Иван',N'Иванов',14000,14000,10,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Вася',N'Васильев',12000,12000,10,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Евгений',N'Евгенов',17000,17000,10,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Ара',N'Араван',20000,20000,10,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Алладин',N'Отребьевич',10000,10000,5,0,0,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Барак',N'Обама',100000,100000,20,1,1000,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Донни',N'Трамп',150000,150000,150,1,900,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Ангелла',N'Меркель',100000,100000,10,1,11100,N'comment1')
+INSERT INTO [Clients] ([Name],[LastName],[Balance],[Deposit],[Tax],[Vip],[DepositBonus],[Comment]) VALUES (N'Йоко',N'Оно',15000,15000,10,1,200,N'comment1')
+
+
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Петр2',15000,15000,10,N'Адрес1')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Иван2',14000,14000,10,N'Адрес2')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Вася2',12000,12000,10,N'Адрес3')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Евгений2',17000,17000,10,N'Адрес5')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Ара2',20000,20000,10,N'Адре61')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Алладин2',10000,10000,5,N'Адрес6')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Барак2',100000,100000,20,N'Адрес7')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Донни2',150000,150000,150,N'Адрес8')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Ангелла2',100000,100000,10,N'Адрес9')
+INSERT INTO [Firms] ([Name],[Balance],[Deposit],[Tax],[Adress]) VALUES (N'Йоко2',15000,15000,10,N'Адрес10')
+
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 1',0,1)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 2',0,1)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 3',0,2)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 4',0,2)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 5',0,3)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 6',0,3)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 7',0,4)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 7',0,4)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 8',0,5)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 9',0,5)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 11',0,6)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 12',0,6)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 3',200,7)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 14',200,7)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 15',300,8)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 16',400,8)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 17',500,9)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 18',100,9)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 19',100,10)
+INSERT INTO [Credits] ([Sum],[Date],[Laon],[Target],[VipBonus],[ClientId]) VALUES(4000,GETDATE(),10,N'цель 110',100,10)
+
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 1',100,1)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 2',200,1)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 3',300,2)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 4',100,2)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 5',200,3)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 6',300,3)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 7',100,4)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 7',200,4)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 8',300,5)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 9',100,5)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 11',200,6)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 12',300,6)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 3',200,7)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 14',200,7)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 15',300,8)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 16',400,8)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 17',500,9)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 18',100,9)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 19',100,10)
+INSERT INTO [Lizings] ([Sum],[Date],[Loan],[Target],[ComeBack],[FirmId]) VALUES(4000,GETDATE(),10,N'цель 110',100,10)

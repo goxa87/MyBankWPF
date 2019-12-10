@@ -1,0 +1,43 @@
+﻿<Page x:Class="MyBankModel.Frames.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyBankModel.Frames"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="700"
+      Title="ClientPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Клиенты" FontSize="20" Margin="5"/>
+        <ListView x:Name="lvClients" 
+                  Grid.Row="1"
+                  Background="Black"
+                  Foreground="White">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Id}">Id</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Name}" Width="150">Имя</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding LastName}" Width="150">ФАМИЛИЯ</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Deposit}" Width="100">Нач. Депозит</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Balance}" Width="100">Баланс</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Tax}">Ставка</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding VIP}">VIP</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding DepositBonus}">VIP бонус</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Comment}">Коммент</GridViewColumn>
+                    <GridViewColumn Header="Кредиты">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnShowCredits" Content="Показать Кредиты"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

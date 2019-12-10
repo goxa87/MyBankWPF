@@ -1,0 +1,40 @@
+﻿<Page x:Class="MyBankModel.Frames.FirmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyBankModel.Frames"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="700"
+      Title="FirmPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Фирмы" FontSize="20" Margin="5"/>
+        <ListView x:Name="lvFirms" 
+                  Grid.Row="1"
+                  Background="Black"
+                  Foreground="White">
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn  DisplayMemberBinding="{Binding Id}">ID</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Name}" Width="150">Имя</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Balance}">Баланс</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Deposit}">Депозит</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Tax}" Width="80">% по вкладу</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Adress}" Width="200">Адрес</GridViewColumn>
+                    <GridViewColumn Header="Кредиты">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnShowCredits" Content="Показать Кредиты"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
