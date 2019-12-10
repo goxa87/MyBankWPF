@@ -31,7 +31,22 @@ namespace MyBankModel.Frames
 
         }
 
+        /// <summary>
+        /// Окно кредитов для выбранного клиента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnShowCredits_Click(object sender, RoutedEventArgs e)
+        {            
+            if (lvClients.SelectedValue != null)
+            {
+                CreditList creditList = new CreditList(new SelectionArgs((this.lvClients.SelectedItem as Clients).Id, Type.Client, false));
+                creditList.Show();
+            }
+            else
+                MessageBox.Show("Начала выдилите клиента");
 
+        }
     }
 
 }

@@ -69,9 +69,36 @@ namespace MyBankModel
             AW.Show();
         }
 
+        /// <summary>
+        /// Вызов окна выборок
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSelection_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// Вызов окна 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAllCredits_Click(object sender, RoutedEventArgs e)
+        {
+            CreditList creditList = new CreditList(new SelectionArgs(0,Type.Client,true));
+            creditList.Show();
+        }
+
+        /// <summary>
+        /// вызов окна всех записей для кредитов для Юр лиц
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAllLizings_Click(object sender, RoutedEventArgs e)
+        {
+            CreditList creditList = new CreditList(new SelectionArgs(0, Type.Firm, true));
+            creditList.Show();
         }
     }
 

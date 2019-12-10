@@ -83,7 +83,39 @@
     <Compile Include="AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clients.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Credits.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Firms.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lizings.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionArgs.cs" />
     <Page Include="AddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreditList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,17 +139,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clients.cs">
-      <DependentUpon>MyDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Credits.cs">
-      <DependentUpon>MyDb.tt</DependentUpon>
+    <Compile Include="CreditList.xaml.cs">
+      <DependentUpon>CreditList.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreditWindow.xaml.cs">
       <DependentUpon>CreditWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Firms.cs">
-      <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Frames\ClientPage.xaml.cs">
       <DependentUpon>ClientPage.xaml</DependentUpon>
@@ -125,30 +151,12 @@
     <Compile Include="Frames\FirmPage.xaml.cs">
       <DependentUpon>FirmPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lizings.cs">
-      <DependentUpon>MyDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDb.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -190,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DBFile\Сделать.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Methods\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MyDb.Context.tt">

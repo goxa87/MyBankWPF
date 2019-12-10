@@ -52,7 +52,7 @@
           <Property Name="Loan" Type="int" Nullable="false" />
           <Property Name="Target" Type="nvarchar" MaxLength="100" />
           <Property Name="ComeBack" Type="int" Nullable="false" />
-          <Property Name="FirmId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirmId" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Хранилище BankDBModelContainer">
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
@@ -112,7 +112,7 @@
           <Property Name="Loan" Type="Int32" Nullable="false" />
           <Property Name="Target" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ComeBack" Type="Int32" Nullable="false" />
-          <Property Name="FirmId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FirmId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="MyDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Clients" />

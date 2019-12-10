@@ -20,6 +20,6 @@ namespace MyBankModel
         public int Loan { get; set; }
         public string Target { get; set; }
         public int ComeBack { get; set; }
-        public string FirmId { get; set; }
+        public int FirmId { get; set; }
     }
 }

@@ -32,7 +32,7 @@
                     <GridViewColumn Header="Кредиты">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="btnShowCredits" Content="Показать Кредиты"/>
+                                <Button x:Name="btnShowCredits" Content="Показать Кредиты" Click="BtnShowCredits_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

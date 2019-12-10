@@ -28,5 +28,21 @@ namespace MyBankModel.Frames
             App.context.Firms.Load();
             lvFirms.ItemsSource = App.context.Firms.Local.ToBindingList<Firms>();
         }
+
+        /// <summary>
+        /// Вызов окна средитов для выбранного клиента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnShowCredits_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvFirms.SelectedItems != null)
+            {
+                CreditList creditList = new CreditList(new SelectionArgs((this.lvFirms.SelectedItem as Firms).Id, Type.Firm, false));
+                creditList.Show();
+            }
+            else
+                MessageBox.Show("Начала выдилите клиента");
+        }
     }
 }
