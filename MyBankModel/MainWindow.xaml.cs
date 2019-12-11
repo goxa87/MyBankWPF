@@ -43,7 +43,7 @@ namespace MyBankModel
 
             // определение  обработчиков для событий списания и начисления по счетам
             DepositTaxesHandler += Methods.Handlers.DoDividend;
-            CreditTaxesHandler += Methods.Handlers.TakeLoan;
+            CreditLoanHandler += Methods.Handlers.TakeLoan;
 
         }      
 
@@ -136,7 +136,7 @@ namespace MyBankModel
         /// <param name="e"></param>
         private void BtnWCreditLoan_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Снято со счетов :{CreditTaxesHandler?.Invoke(App.context)} тугриков за кредиты");
+            MessageBox.Show($"Снято со счетов :{CreditLoanHandler?.Invoke(App.context)} тугриков за кредиты");
         }
     }
 
