@@ -36,7 +36,7 @@ namespace MyBankModel.Frames
         /// <param name="e"></param>
         private void BtnShowCredits_Click(object sender, RoutedEventArgs e)
         {
-            if (lvFirms.SelectedItems != null)
+            if (lvFirms.SelectedValue != null)
             {
                 CreditList creditList = new CreditList(new SelectionArgs((this.lvFirms.SelectedItem as Firms).Id, Type.Firm, false));
                 creditList.Show();

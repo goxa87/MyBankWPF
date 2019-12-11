@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 namespace MyBankModel
 {
     /// <summary>
+    /// делегат для уравления прерациями со счетами
+    /// </summary>
+    /// <param name="db">контекст базы вкоторой нужно выполнить операции</param>
+    /// <returns></returns>
+    public delegate int OperationsHandler(MyDb db);
+
+    
+    /// <summary>
     /// делегат для управления выборками
     /// </summary>
     /// <param name=""></param>

@@ -32,7 +32,7 @@ CREATE TABLE [dbo].[Credits]
     [Date] DATETIME NOT NULL, 
     [Laon] INT NOT NULL, 
     [Target] NVARCHAR(200) NULL, 
-    [VipBonus] NCHAR(10) NOT NULL DEFAULT 0,
+    [VipBonus] INT NOT NULL DEFAULT 0,
 	[ClientId] INT NOT NULL
 )
 
@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[Lizings] (
     [Loan]     INT            NOT NULL,
     [Target]   NVARCHAR (100) NULL,
     [ComeBack] INT            DEFAULT ((0)) NOT NULL,
-    [FirmId]   NCHAR (10)     NOT NULL,
+    [FirmId]   INT (10)     NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

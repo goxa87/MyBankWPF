@@ -13,7 +13,6 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="MinWidth" Value="50"/>
-            <Setter Property="MaxWidth" Value="120"/>
             <Setter Property="MinHeight" Value="30"/>
             <Setter Property="MaxHeight" Value="50"/>
             <Setter Property="Margin" Value="5"/>
@@ -34,8 +33,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <Button x:Name="btnClient" Content="клиенты" Click="BtnClient_Click"/>
-            <Button x:Name="btnFirm" Content="фирмы" Click="BtnFirm_Click"/>
+            <Button x:Name="btnClient" Content="клиенты" Click="BtnClient_Click" Width="100"/>
+            <Button x:Name="btnFirm" Content="фирмы" Click="BtnFirm_Click" Width="100"/>
+            <Button x:Name="btnAddDepositTax" Content="начисления процентов" Width="234" Click="BtnAddDepositTax_Click"/>
+            <Button x:Name="btnWCreditLoan" Content="списания по кредитам" Width="234" Click="BtnWCreditLoan_Click"/>
         </StackPanel>
 
         <Frame x:Name="frMain" 

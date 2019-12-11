@@ -95,6 +95,7 @@
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Methods\Handlers.cs" />
     <Compile Include="MyDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,9 +200,7 @@
   <ItemGroup>
     <Resource Include="DBFile\Сделать.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Methods\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="MyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

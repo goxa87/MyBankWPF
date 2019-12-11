@@ -20,12 +20,31 @@ namespace MyBankModel
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Операции по ежемесячным начислениям дивидендов по вкладам
+        /// </summary>
+        event OperationsHandler DepositTaxesHandler;
+
+        /// <summary>
+        /// событие для списания по кредитам
+        /// </summary>
+        event OperationsHandler CreditTaxesHandler;
+
+        /// <summary>
+        ///  Операции по ежемесячным списаниям процентов по кредитам с основного счета
+        /// </summary>
+        event OperationsHandler CreditLoanHandler;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            frMain.Content = new Frames.ClientPage();            
+            frMain.Content = new Frames.ClientPage();
+
+            // определение  обработчиков для событий списания и начисления по счетам
+            DepositTaxesHandler += Methods.Handlers.DoDividend;
+            CreditTaxesHandler += Methods.Handlers.TakeLoan;
+
         }      
 
         /// <summary>
@@ -80,7 +99,7 @@ namespace MyBankModel
         }
 
         /// <summary>
-        /// Вызов окна 
+        /// Вызов окна  кредитов
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -99,6 +118,25 @@ namespace MyBankModel
         {
             CreditList creditList = new CreditList(new SelectionArgs(0, Type.Firm, true));
             creditList.Show();
+        }
+        /// <summary>
+        /// кнопка Начисление дивидендов по депозитам
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAddDepositTax_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Начислено:{DepositTaxesHandler?.Invoke(App.context)} по депозитам");
+        }
+
+        /// <summary>
+        /// кнопка Списание процентов по кредитам
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnWCreditLoan_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Снято со счетов :{CreditTaxesHandler?.Invoke(App.context)} тугриков за кредиты");
         }
     }
 
