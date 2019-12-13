@@ -204,6 +204,7 @@
   <ItemGroup>
     <Resource Include="Icons\plus.png" />
     <Resource Include="Icons\minus.png" />
+    <Resource Include="Icons\show.png" />
     <Content Include="MyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyDb.edmx</DependentUpon>

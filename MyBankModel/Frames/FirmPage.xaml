@@ -26,6 +26,11 @@
                             <Image Source="/Icons/plus.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem x:Name="btnShowCredits" Header="Показать актуальные кредиты" Click="BtnShowCredits_Click" >
+                        <MenuItem.Icon >
+                            <Image Source="/Icons/show.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <MenuItem x:Name="btnDelete" Header="Удалить клиента" Click="BtnDelete_Click">
                         <MenuItem.Icon >
                             <Image Source="/Icons/minus.png"/>
@@ -41,13 +46,7 @@
                     <GridViewColumn  DisplayMemberBinding="{Binding Deposit}">Депозит</GridViewColumn>
                     <GridViewColumn  DisplayMemberBinding="{Binding Tax}" Width="80">% по вкладу</GridViewColumn>
                     <GridViewColumn  DisplayMemberBinding="{Binding Adress}" Width="200">Адрес</GridViewColumn>
-                    <GridViewColumn Header="Кредиты">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="btnShowCredits" Content="Показать Кредиты" Click="BtnShowCredits_Click"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    
                 </GridView>
             </ListView.View>
         </ListView>
