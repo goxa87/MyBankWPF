@@ -95,7 +95,8 @@ namespace MyBankModel
         /// <param name="e"></param>
         private void BtnSelection_Click(object sender, RoutedEventArgs e)
         {
-
+            var SW = new Selections();
+            SW.Show();
         }
 
         /// <summary>

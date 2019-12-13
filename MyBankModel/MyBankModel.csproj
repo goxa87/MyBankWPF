@@ -112,6 +112,9 @@
       <DependentUpon>MyDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="SelectionArgs.cs" />
+    <Compile Include="Selections.xaml.cs">
+      <DependentUpon>Selections.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +159,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Selections.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

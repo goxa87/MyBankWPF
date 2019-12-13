@@ -52,18 +52,10 @@
 
         <!--кнопы справа -->
         
-        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="6"> 
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="6"> 
             <Button x:Name="btnAddClient" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65" Click="BtnAddClient_Click">
                 <TextBlock Text="Добавить клиента" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
-            </Button>            
-
-            <Button x:Name="btnChangeFirm" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65">
-                <TextBlock Text="Редактировать" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
-            </Button>
-
-            <Button x:Name="btnDelFirm" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65" Click="BtnDelFirm_Click">
-                <TextBlock Text="Удалить" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
-            </Button>
+            </Button>                        
 
             <Button x:Name="btnSelection" Content="Выборки" Click="BtnSelection_Click"/>
             
