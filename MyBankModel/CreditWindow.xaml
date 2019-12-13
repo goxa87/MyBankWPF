@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBankModel"
         mc:Ignorable="d"
-        Title="CreditWindow" Height="250" Width="400">
+        Title="Добавление ссуды" Height="300" Width="400" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="txtTitle" 
+                   Text="Сведения" 
+                   FontSize="16" 
+                   FontWeight="Black" 
+                   Margin="5"
+                   Grid.ColumnSpan="2"/>
+
+        <TextBlock Text="Сумма кредита" Grid.Row="1" Margin="2" TextWrapping="Wrap" FontSize="12" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <TextBox x:Name="txtSum" Grid.Row="1" Grid.Column="1" Background="Black" Foreground="White" KeyDown="TxtSum_KeyDown" Margin="3" FontSize="16"/>
+
+        <TextBlock Text="Процент по вкладу" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center"  TextAlignment="Center"/>
+        <TextBox x:Name="txtLoan" Grid.Row="2" Grid.Column="1" Background="Black" Foreground="White" KeyDown="TxtSum_KeyDown" Margin="3" FontSize="16"/>
+
+        <TextBlock Text="vip бонус" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center"  TextAlignment="Center"/>
+        <TextBox x:Name="txtVipBonus" Grid.Row="3" Grid.Column="1" Background="Black" Foreground="White" KeyDown="TxtSum_KeyDown" Margin="3" FontSize="16"/>
+
+        <TextBlock Text="Цель" Grid.Row="4" TextWrapping="Wrap" HorizontalAlignment="Center"  TextAlignment="Center"/>
+        <TextBox x:Name="txtTarget" Grid.Row="4" Grid.Column="1" Background="Black" Foreground="White" Margin="3" FontSize="16" TextWrapping="Wrap" />        
+
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnAdd" Content="Добавить" Width="100" Background="Black" Foreground="White" Margin="5 2" Click="BtnAdd_Click"/>
+            <Button x:Name="btnCancel" Content="Отмена" Width="100" Background="Black" Foreground="White" Margin="5 2" Click="BtnCancel_Click"/>
+        </StackPanel>
+
     </Grid>
 </Window>

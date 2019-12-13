@@ -18,6 +18,20 @@
                   Grid.Row="1"
                   Background="Black"
                   Foreground="White">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="btnAddLizing" Header="Добавить кредит" Click="BtnAddLizing_Click" >
+                        <MenuItem.Icon >
+                            <Image Source="/Icons/plus.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="btnDelete" Header="Удалить клиента" Click="BtnDelete_Click">
+                        <MenuItem.Icon >
+                            <Image Source="/Icons/minus.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn  DisplayMemberBinding="{Binding Id}">Id</GridViewColumn>

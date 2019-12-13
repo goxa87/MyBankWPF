@@ -44,5 +44,27 @@ namespace MyBankModel.Frames
             else
                 MessageBox.Show("Начала выдилите клиента");
         }
+
+        /// <summary>
+        /// Вызов окна добавления кредита для этого клиента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAddLizing_Click(object sender, RoutedEventArgs e)
+        {
+            CreditWindow CW = new CreditWindow(this.lvFirms.SelectedItem);
+            CW.Show();
+        }
+
+
+        /// <summary>
+        /// Удаление этого клиента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

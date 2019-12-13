@@ -47,6 +47,22 @@ namespace MyBankModel.Frames
                 MessageBox.Show("Начала выдилите клиента");
 
         }
+
+        /// <summary>
+        /// Контекстное меню.  добавление кредита
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAddLizing_Click(object sender, RoutedEventArgs e)
+        {
+            CreditWindow CW = new CreditWindow(this.lvClients.SelectedItem);
+            CW.Show();
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
