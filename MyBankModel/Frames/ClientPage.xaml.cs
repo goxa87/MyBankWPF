@@ -59,8 +59,31 @@ namespace MyBankModel.Frames
             CW.Show();
         }
 
+        /// <summary>
+        /// Удаелние клиента и всех его кредитов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var flag = MessageBox.Show("Точно безвозвратно удалить его и все его кредиты?", "ВНИМАНИЕ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (flag == MessageBoxResult.Yes)
+            {
+                int clientId = (lvClients.SelectedItem as Clients).Id;  // ид клиента
+
+                var arr = App.context.Credits.Where(t => t.ClientId == clientId);   // удаление кредитов
+                foreach (var n in arr)
+                {
+                    App.context.Credits.Remove(n);
+                }
+
+                var client = App.context.Clients.Find(clientId);  // удаление самого клиента
+                App.context.Clients.Remove(client);
+
+                App.context.SaveChanges();
+
+
+            }
 
         }
     }

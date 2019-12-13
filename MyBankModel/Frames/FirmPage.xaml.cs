@@ -42,7 +42,7 @@ namespace MyBankModel.Frames
                 creditList.Show();
             }
             else
-                MessageBox.Show("Начала выдилите клиента");
+                MessageBox.Show("Сначала выдилите клиента");
         }
 
         /// <summary>
@@ -64,6 +64,23 @@ namespace MyBankModel.Frames
         /// <param name="e"></param>
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var flag = MessageBox.Show("Точно безвозвратно удалить фирму и все ее кредиты?", "ВНИМАНИЕ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (flag == MessageBoxResult.Yes) // ответ из месседж бокса
+            {
+                int clientId = (lvFirms.SelectedItem as Firms).Id;  // ид клиента
+
+                var arr = App.context.Lizings.Where(t => t.FirmId == clientId);  // удаление кредитов
+                foreach (var n in arr)
+                {
+                    App.context.Lizings.Remove(n);
+                }
+
+                var client = App.context.Firms.Find(clientId); // удаление самого клиента
+                App.context.Firms.Remove(client);
+
+                App.context.SaveChanges();
+            }
+
 
         }
     }
