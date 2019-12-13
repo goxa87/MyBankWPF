@@ -37,7 +37,7 @@ namespace MyBankModel
         public Type type { get; }
 
         /// <summary>
-        /// Флаг для выборки всех кредитов
+        /// Флаг для выборки всех кредитов 1 lда 0- тольок для 1
         /// </summary>
         public bool AllFlag { get; }
 

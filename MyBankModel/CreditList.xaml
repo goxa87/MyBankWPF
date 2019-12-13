@@ -11,23 +11,17 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>       
             
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>          
+        </Grid.RowDefinitions>       
             
             
-            <TextBlock Text="Клиент"
+            <TextBlock x:Name="txtInfo"
+                        Text="Клиент"
                        Grid.Column="0"
                        Margin="5" 
                        FontSize="16" 
                        FontWeight="Bold" 
                        FontFamily="Segoe Print" />
-        </Grid>
+        
 
         <DataGrid x:Name="dgCredits" 
                   Grid.Row="1" 

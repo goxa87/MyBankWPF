@@ -30,6 +30,7 @@ namespace MyBankModel
             InitializeComponent();
             selectionHandler += select;
             selectionHandler?.Invoke(args);
+                        
         }
 
 
@@ -43,12 +44,14 @@ namespace MyBankModel
             {
                 App.context.Credits.Load();
                 dgCredits.ItemsSource = App.context.Credits.Local.ToBindingList<Credits>();
+                txtInfo.Text = "Все физические лица";
             }
 
             if (args.AllFlag == true && args.type == Type.Firm)  // все кредиты для клиентов
             {
                 App.context.Lizings.Load();
                 dgCredits.ItemsSource = App.context.Lizings.Local.ToBindingList<Lizings>();
+                txtInfo.Text = "Все юридические лица";
             }
 
             if (args.AllFlag == false && args.type == Type.Client) // кредиты конкретного клиента
@@ -57,6 +60,9 @@ namespace MyBankModel
                 var rez = App.context.Credits.Where<Credits>((e) => e.ClientId == args.ClientID);
 
                 dgCredits.ItemsSource = rez.ToList();
+
+                var client = App.context.Clients.Where(e => e.Id == args.ClientID).FirstOrDefault();
+                txtInfo.Text = $"Клиент: id{client.Id} - {client.Name} {client.LastName} VIP: {client.Vip}";
             }
 
             if (args.AllFlag == false && args.type == Type.Firm) // кредиты конкретного клиента
@@ -65,6 +71,9 @@ namespace MyBankModel
                 var rez = App.context.Lizings.Where<Lizings>((e) => e.FirmId == args.ClientID);
 
                 dgCredits.ItemsSource = rez.ToList();
+
+                var client = App.context.Firms.Where(e => e.Id == args.ClientID).FirstOrDefault();
+                txtInfo.Text = $"Клиент: id{client.Id} - {client.Name}";
             }
         }
     }
