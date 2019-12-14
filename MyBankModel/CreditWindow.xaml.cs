@@ -144,7 +144,7 @@ namespace MyBankModel
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("ошибка обращения к БД " + ex.Message);
                     }
                 }
                 else // юр лицо
@@ -168,7 +168,7 @@ namespace MyBankModel
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("ошибка обращения к БД " + ex.Message);
                     }
                 }
             }

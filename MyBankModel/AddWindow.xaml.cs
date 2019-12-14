@@ -137,7 +137,7 @@ namespace MyBankModel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("ошибка обращения к БД " + ex.Message);
                 }
             }
             else
@@ -158,7 +158,7 @@ namespace MyBankModel
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("ошибка обращения к БД " + ex.Message);
                 }
             }
                        
@@ -202,7 +202,7 @@ namespace MyBankModel
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("ошибка обращения к БД " + ex.Message);
                     }
 
                 }
@@ -237,7 +237,7 @@ namespace MyBankModel
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("ошибка обращения к БД " + ex.Message);
                     }
                 }
             }                

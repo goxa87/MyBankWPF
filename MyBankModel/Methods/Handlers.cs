@@ -52,7 +52,7 @@ namespace MyBankModel.Methods
             }            
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("ошибка обращения к БД "+ ex.Message);
             }
             return summ;
         }
@@ -122,7 +122,7 @@ namespace MyBankModel.Methods
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("ошибка обращения к БД " + ex.Message);
             }
             return summ;
         }
