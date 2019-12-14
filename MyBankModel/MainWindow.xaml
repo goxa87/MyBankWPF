@@ -37,6 +37,16 @@
             <Button x:Name="btnFirm" Content="фирмы" Click="BtnFirm_Click" Width="100"/>
             <Button x:Name="btnAddDepositTax" Content="начисления процентов" Width="234" Click="BtnAddDepositTax_Click"/>
             <Button x:Name="btnWCreditLoan" Content="списания по кредитам" Width="234" Click="BtnWCreditLoan_Click"/>
+            <Button x:Name="btnHelp" Background="Red" MinWidth="130" Click="BtnHelp_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="30" Height="30" >
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="Icons/help.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="Справка" Foreground="Black" FontWeight="Black" Margin="3 0"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <Frame x:Name="frMain" 
@@ -47,22 +57,22 @@
 
         <Grid Grid.Column="1">
             <!--часики -->
-            
+
         </Grid>
 
         <!--кнопы справа -->
-        
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="6"> 
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="6">
             <Button x:Name="btnAddClient" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65" Click="BtnAddClient_Click">
                 <TextBlock Text="Добавить клиента" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
-            </Button>                        
+            </Button>
 
             <Button x:Name="btnSelection" Content="Выборки" Click="BtnSelection_Click"/>
-            
+
             <Button x:Name="btnAllCredits" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65" Click="BtnAllCredits_Click">
                 <TextBlock Text="Все кредиты Физ лиц" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
             </Button>
-            
+
             <Button x:Name="btnAllLizings" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinHeight="65" Click="BtnAllLizings_Click">
                 <TextBlock Text="Все кредиты ЮР лиц" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
             </Button>

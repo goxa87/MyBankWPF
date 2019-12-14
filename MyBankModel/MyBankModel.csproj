@@ -92,6 +92,9 @@
     <Compile Include="Firms.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frames\FirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,6 +219,7 @@
     <Resource Include="Icons\plus.png" />
     <Resource Include="Icons\minus.png" />
     <Resource Include="Icons\show.png" />
+    <Resource Include="Icons\help.png" />
     <Content Include="MyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyDb.edmx</DependentUpon>

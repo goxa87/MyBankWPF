@@ -139,6 +139,17 @@ namespace MyBankModel
         {
             MessageBox.Show($"Снято со счетов :{CreditLoanHandler?.Invoke(App.context)} тугриков за кредиты");
         }
+
+        /// <summary>
+        /// Вызов справки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            var HW =  new Help();
+            HW.Show();
+        }
     }
 
    
