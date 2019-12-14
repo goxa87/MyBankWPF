@@ -130,9 +130,15 @@ namespace MyBankModel
                     DepositBonus = depBonus,
                     Comment = txtComment.Text                    
                 };
-
-                App.context.Clients.Add(cl1);  // добавить в БД
-                App.context.SaveChanges();
+                try
+                {
+                    App.context.Clients.Add(cl1);  // добавить в БД
+                    App.context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -146,9 +152,14 @@ namespace MyBankModel
                     Tax = tax,                    
                     Adress = txtComment.Text
                 };
-
-                App.context.Firms.Add(f1);  // добавить в БД
-                App.context.SaveChanges();
+                try { 
+                    App.context.Firms.Add(f1);  // добавить в БД
+                    App.context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
                        
             MessageBox.Show("Добавлено");
@@ -181,11 +192,18 @@ namespace MyBankModel
 
                 using (connection)  // соедиенение
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    int number = command.ExecuteNonQuery();  // выполнение
-                    MessageBox.Show($"Добавлено объектов: {number}");
-                    this.Close();
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        int number = command.ExecuteNonQuery();  // выполнение
+                        MessageBox.Show($"Добавлено объектов: {number}");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
                 }
             }
@@ -209,11 +227,18 @@ namespace MyBankModel
 
                 using (connection)
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    int number = command.ExecuteNonQuery();
-                    MessageBox.Show($"Добавлено объектов: {number}");
-                    this.Close();
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        int number = command.ExecuteNonQuery();
+                        MessageBox.Show($"Добавлено объектов: {number}");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }                
         }

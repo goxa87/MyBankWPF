@@ -67,16 +67,7 @@ namespace MyBankModel
         {
             frMain.Content = new Frames.FirmPage();            
         }
-
-        /// <summary>
-        /// Удаление выделенного клиента
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnDelFirm_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
         /// <summary>
         /// Добавление нового клиента
         /// </summary>
@@ -127,7 +118,8 @@ namespace MyBankModel
         /// <param name="e"></param>
         private void BtnAddDepositTax_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Начислено:{DepositTaxesHandler?.Invoke(App.context)} по депозитам");
+            Task.Factory.StartNew(()=>
+            MessageBox.Show($"Начислено:{DepositTaxesHandler?.Invoke(App.context)} по депозитам"));
         }
 
         /// <summary>
@@ -137,7 +129,8 @@ namespace MyBankModel
         /// <param name="e"></param>
         private void BtnWCreditLoan_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Снято со счетов :{CreditLoanHandler?.Invoke(App.context)} тугриков за кредиты");
+            Task.Factory.StartNew(() =>
+            MessageBox.Show($"Снято со счетов :{CreditLoanHandler?.Invoke(App.context)} тугриков за кредиты"));
         }
 
         /// <summary>

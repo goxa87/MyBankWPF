@@ -25,9 +25,17 @@ namespace MyBankModel.Frames
         public ClientPage()
         {
             InitializeComponent();
-            
-            App.context.Clients.Load();
-            lvClients.ItemsSource = App.context.Clients.Local.ToBindingList<Clients>();
+            try
+            {
+                
+                App.context.Clients.Load();
+                lvClients.ItemsSource = App.context.Clients.Local.ToBindingList<Clients>();
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -70,20 +78,26 @@ namespace MyBankModel.Frames
             if (flag == MessageBoxResult.Yes)
             {
                 int clientId = (lvClients.SelectedItem as Clients).Id;  // ид клиента
-
-                var arr = App.context.Credits.Where(t => t.ClientId == clientId);   // удаление кредитов
-                foreach (var n in arr)
+                try
                 {
-                    App.context.Credits.Remove(n);
+                    var arr = App.context.Credits.Where(t => t.ClientId == clientId);   // удаление кредитов
+                    foreach (var n in arr)
+                    {
+                        App.context.Credits.Remove(n);
+                    }
+
+                    var client = App.context.Clients.Find(clientId);  // удаление самого клиента
+                    App.context.Clients.Remove(client);
+
+                    App.context.SaveChanges();
+                
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
 
-                var client = App.context.Clients.Find(clientId);  // удаление самого клиента
-                App.context.Clients.Remove(client);
-
-                App.context.SaveChanges();
-
-
-            }
+        }
 
         }
     }

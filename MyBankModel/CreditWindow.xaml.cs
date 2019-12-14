@@ -135,11 +135,17 @@ namespace MyBankModel
                         VipBonus = vipB,
                         Target = txtTarget.Text
                     };
-
-                    App.context.Credits.Add(credit); // добавление
-                    App.context.SaveChanges();
-                    MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение
-                    this.Close();   // закрыть окно
+                    try
+                    {
+                        App.context.Credits.Add(credit); // добавление
+                        App.context.SaveChanges();
+                        MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение
+                        this.Close();   // закрыть окно
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
                 else // юр лицо
                 {
@@ -152,12 +158,18 @@ namespace MyBankModel
                         ComeBack = Convert.ToInt32(txtVipBonus.Text),
                         Target = txtTarget.Text
                     };
+                    try
+                    {
+                        App.context.Lizings.Add(lizing);  // вносим в базу
+                        App.context.SaveChanges();
 
-                    App.context.Lizings.Add(lizing);  // вносим в базу
-                    App.context.SaveChanges();
-
-                    MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение
-                    this.Close();   // закрыть окно
+                        MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение
+                        this.Close();   // закрыть окно
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }

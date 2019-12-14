@@ -24,7 +24,8 @@ namespace MyBankModel
         {
             InitializeComponent();
             string path = Directory.GetCurrentDirectory() + "/help.html";
-            browser.Navigate(path);
+            if (File.Exists(path)) browser.Navigate(path);
+            else MessageBox.Show("Файл help.html Не найден. Разместите его рядом с exe");
         }
     }
 }

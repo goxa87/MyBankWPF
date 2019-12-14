@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBankModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1040">
+        Title="Моя банка" Height="500" Width="1040">
 
     <Window.Resources>
         <Style TargetType="Button">

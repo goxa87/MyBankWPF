@@ -25,8 +25,16 @@ namespace MyBankModel.Frames
         {
             
             InitializeComponent();
-            App.context.Firms.Load();
-            lvFirms.ItemsSource = App.context.Firms.Local.ToBindingList<Firms>();
+            try
+            {                
+                App.context.Firms.Load();
+                lvFirms.ItemsSource = App.context.Firms.Local.ToBindingList<Firms>();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -67,18 +75,25 @@ namespace MyBankModel.Frames
             var flag = MessageBox.Show("Точно безвозвратно удалить фирму и все ее кредиты?", "ВНИМАНИЕ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (flag == MessageBoxResult.Yes) // ответ из месседж бокса
             {
-                int clientId = (lvFirms.SelectedItem as Firms).Id;  // ид клиента
-
-                var arr = App.context.Lizings.Where(t => t.FirmId == clientId);  // удаление кредитов
-                foreach (var n in arr)
+                try
                 {
-                    App.context.Lizings.Remove(n);
+                    int clientId = (lvFirms.SelectedItem as Firms).Id;  // ид клиента
+
+                    var arr = App.context.Lizings.Where(t => t.FirmId == clientId);  // удаление кредитов
+                    foreach (var n in arr)
+                    {
+                        App.context.Lizings.Remove(n);
+                    }
+
+                    var client = App.context.Firms.Find(clientId); // удаление самого клиента
+                    App.context.Firms.Remove(client);
+
+                    App.context.SaveChanges();
                 }
-
-                var client = App.context.Firms.Find(clientId); // удаление самого клиента
-                App.context.Firms.Remove(client);
-
-                App.context.SaveChanges();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
 
