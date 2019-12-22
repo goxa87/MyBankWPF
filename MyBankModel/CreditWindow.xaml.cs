@@ -126,18 +126,20 @@ namespace MyBankModel
                     if (client.Vip)
                         vipB = Convert.ToInt32(txtVipBonus.Text);
 
-                    var credit = new Credits() // создание кредита
-                    {
-                        ClientId = client.Id,
-                        Date = DateTime.Now,
-                        Loan = Convert.ToInt32(txtLoan.Text),
-                        Sum = Convert.ToInt32(txtSum.Text),
-                        VipBonus = vipB,
-                        Target = txtTarget.Text
-                    };
+                    //var credit = new Credits() // создание кредита
+                    //{
+                    //    ClientId = client.Id,
+                    //    Date = DateTime.Now,
+                    //    Loan = Convert.ToInt32(txtLoan.Text),
+                    //    Sum = Convert.ToInt32(txtSum.Text),
+                    //    VipBonus = vipB,
+                    //    Target = txtTarget.Text
+                    //};
+
+                    var credit = ClientsFactory.GetCredit("кр", Convert.ToInt32(txtSum.Text), Convert.ToInt32(txtLoan.Text), client.Id, vipB, txtTarget.Text);
                     try
                     {
-                        App.context.Credits.Add(credit); // добавление
+                        App.context.Credits.Add(credit as Credits); // добавление
                         App.context.SaveChanges();
                         MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение
                         this.Close();   // закрыть окно
@@ -149,18 +151,20 @@ namespace MyBankModel
                 }
                 else // юр лицо
                 {
-                    var lizing = new Lizings()  //объект для добавления
-                    {
-                        FirmId = firm.Id,
-                        Date = DateTime.Now,
-                        Loan = Convert.ToInt32(txtLoan.Text),
-                        Sum = Convert.ToInt32(txtSum.Text),
-                        ComeBack = Convert.ToInt32(txtVipBonus.Text),
-                        Target = txtTarget.Text
-                    };
+                    //var lizing = new Lizings()  //объект для добавления
+                    //{
+                    //    FirmId = firm.Id,
+                    //    Date = DateTime.Now,
+                    //    Loan = Convert.ToInt32(txtLoan.Text),
+                    //    Sum = Convert.ToInt32(txtSum.Text),
+                    //    ComeBack = Convert.ToInt32(txtVipBonus.Text),
+                    //    Target = txtTarget.Text
+                    //};
+
+                    var lizing = ClientsFactory.GetCredit("л", Convert.ToInt32(txtSum.Text), Convert.ToInt32(txtLoan.Text), firm.Id, Convert.ToInt32(txtVipBonus.Text), txtTarget.Text);
                     try
                     {
-                        App.context.Lizings.Add(lizing);  // вносим в базу
+                        App.context.Lizings.Add(lizing as Lizings);  // вносим в базу
                         App.context.SaveChanges();
 
                         MessageBox.Show("Кредит успешно добавлен", "Поздравляем", MessageBoxButton.OK, MessageBoxImage.Warning);  // оповещение

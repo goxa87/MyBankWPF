@@ -12,7 +12,7 @@ namespace MyBankModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Lizings
+    public partial class Lizings:IBankCredit
     {
         public int Id { get; set; }
         public int Sum { get; set; }
@@ -21,5 +21,25 @@ namespace MyBankModel
         public string Target { get; set; }
         public int ComeBack { get; set; }
         public int FirmId { get; set; }
+
+        public Lizings() { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sum"> сумма</param>
+        /// <param name="loan">процент</param>
+        /// <param name="targ">цель</param>
+        /// <param name="cb">возврат</param>
+        /// <param name="fid">ид фирмы</param>
+        public Lizings(int sum, int loan, string targ, int cb, int fid)
+        {
+            Sum = sum;
+            Date = DateTime.Now;
+            Loan = loan;
+            Target = targ;
+            ComeBack = cb;
+            FirmId = fid;
+        }
     }
 }

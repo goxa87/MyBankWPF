@@ -12,7 +12,7 @@ namespace MyBankModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Credits
+    public partial class Credits:IBankCredit
     {
         public int Id { get; set; }
         public int Sum { get; set; }
@@ -21,5 +21,25 @@ namespace MyBankModel
         public string Target { get; set; }
         public int VipBonus { get; set; }
         public int ClientId { get; set; }
+
+        public Credits() { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s">сумма</param>
+        /// <param name="l">поцент</param>
+        /// <param name="t">цель</param>
+        /// <param name="vb">вип бонус</param>
+        /// <param name="cid">клиент id</param>
+        public Credits(int s, int l, string t, int vb, int cid)
+        {
+            Sum = s;
+            Date = DateTime.Now;
+            Loan = l;
+            Target = t;
+            VipBonus = vb;
+            ClientId = cid;
+        }
     }
 }

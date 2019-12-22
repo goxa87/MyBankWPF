@@ -119,20 +119,22 @@ namespace MyBankModel
                 }
 
 
-                var cl1 = new Clients()  // создаем экземпляр
-                {
-                    Name = txtName.Text,
-                    LastName = txtLastName.Text,
-                    Balance = Convert.ToInt32(txtDeposit.Text),
-                    Deposit = Convert.ToInt32(txtDeposit.Text),
-                    Tax = tax,
-                    Vip = vip,
-                    DepositBonus = depBonus,
-                    Comment = txtComment.Text                    
-                };
+                //var cl1 = new Clients()  // создаем экземпляр
+                //{
+                //    Name = txtName.Text,
+                //    LastName = txtLastName.Text,
+                //    Balance = Convert.ToInt32(txtDeposit.Text),
+                //    Deposit = Convert.ToInt32(txtDeposit.Text),
+                //    Tax = tax,
+                //    Vip = vip,
+                //    DepositBonus = depBonus,
+                //    Comment = txtComment.Text                    
+                //};
+
+                var cl1 = ClientsFactory.GetClient("к", Convert.ToInt32(txtDeposit.Text), txtName.Text, txtLastName.Text, tax, vip, depBonus, txtComment.Text);
                 try
                 {
-                    App.context.Clients.Add(cl1);  // добавить в БД
+                    App.context.Clients.Add(cl1 as Clients);  // добавить в БД
                     App.context.SaveChanges();
                 }
                 catch (Exception ex)
@@ -144,16 +146,18 @@ namespace MyBankModel
             {
                 int tax = Convert.ToInt32(cbTaxes.SelectedItem.ToString().Split('%')[0]);        //    // получить % по вкладу из строк в APP.ефчуыы
 
-                var f1 = new Firms()  // экземпляр на основе введенных данных
-                {
-                    Name = txtName.Text,                    
-                    Balance = Convert.ToInt32(txtDeposit.Text),
-                    Deposit = Convert.ToInt32(txtDeposit.Text),
-                    Tax = tax,                    
-                    Adress = txtComment.Text
-                };
+                //var f1 = new Firms()  // экземпляр на основе введенных данных
+                //{
+                //    Name = txtName.Text,                    
+                //    Balance = Convert.ToInt32(txtDeposit.Text),
+                //    Deposit = Convert.ToInt32(txtDeposit.Text),
+                //    Tax = tax,                    
+                //    Adress = txtComment.Text
+                //};
+
+                var f1 = ClientsFactory.GetClient("ф", Convert.ToInt32(txtDeposit.Text), txtName.Text, "", tax, false, 0, txtComment.Text);
                 try { 
-                    App.context.Firms.Add(f1);  // добавить в БД
+                    App.context.Firms.Add(f1 as Firms);  // добавить в БД
                     App.context.SaveChanges();
                 }
                 catch (Exception ex)

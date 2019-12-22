@@ -12,7 +12,7 @@ namespace MyBankModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Clients
+    public partial class Clients:IBankClient
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -23,5 +23,29 @@ namespace MyBankModel
         public bool Vip { get; set; }
         public int DepositBonus { get; set; }
         public string Comment { get; set; }
+
+        public Clients() { }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="n">имя </param>
+        /// <param name="ln">фамилия</param>
+        /// <param name="d">депозит</param>
+        /// <param name="t">проуент на депозит</param>
+        /// <param name="v">вип</param>
+        /// <param name="db">деп бонус</param>
+        /// <param name="co">комент</param>
+        public Clients(string n, string ln, int d, double t, bool v, int db, string co )
+        {
+            Name = n;
+            LastName = ln;
+            Deposit = d;
+            Balance = d;
+            Tax = t;
+            Vip = v;
+            DepositBonus = db;
+            Comment = co;
+        }
     }
 }

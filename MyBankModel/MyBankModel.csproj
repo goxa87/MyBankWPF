@@ -86,6 +86,7 @@
     <Compile Include="Clients.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClientsFactory.cs" />
     <Compile Include="Credits.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
@@ -95,6 +96,8 @@
     <Compile Include="Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IBankClient.cs" />
+    <Compile Include="IBnakCredit.cs" />
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
