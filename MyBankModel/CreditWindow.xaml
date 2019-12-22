@@ -41,7 +41,7 @@
 
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="btnAdd" Content="Добавить" Width="100" Background="Black" Foreground="White" Margin="5 2" Click="BtnAdd_Click"/>
-            <Button x:Name="btnCancel" Content="Отмена" Width="100" Background="Black" Foreground="White" Margin="5 2" Click="BtnCancel_Click"/>
+            <Button x:Name="btnCancel" Content="Отмена" Width="100" Background="Black" Foreground="White" Margin="5 2"/>
         </StackPanel>
 
     </Grid>

@@ -96,8 +96,7 @@
                     Grid.Column="3"
                     Background="Black"
                     Foreground="White"
-                    Margin="3 0 2 2"
-                    Click="BtnCancel_Click"/>
+                    Margin="3 0 2 2"/>
             
         </Grid>
     </Grid>

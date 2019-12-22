@@ -68,6 +68,7 @@ namespace MyBankModel
             }
 
             txtVipBonus.Text = "0";
+            btnCancel.Click += (s, e) => this.Close();
                 
         } 
 
@@ -96,15 +97,15 @@ namespace MyBankModel
 
 
 
-            /// <summary>
-            /// Закрывает окно без сохранения
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        //    /// <summary>
+        //    /// Закрывает окно без сохранения
+        //    /// </summary>
+        //    /// <param name="sender"></param>
+        //    /// <param name="e"></param>
+        //private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
 
         /// <summary>
         /// Добавление на основе выбранного клиента

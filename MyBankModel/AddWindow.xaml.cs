@@ -31,6 +31,8 @@ namespace MyBankModel
             Type = true;  // что добавляем
             cbTaxes.ItemsSource = App.taxes;  // содержимое комбо
             cbTaxes.SelectedIndex = 0;
+
+            btnCancel.Click += (s, e) => this.Close();
         }
 
         /// <summary>
@@ -248,14 +250,14 @@ namespace MyBankModel
         }
 
 
-        /// <summary>
-        /// Возвращение из этого окна
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        ///// <summary>
+        ///// Возвращение из этого окна
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
     }
 }
