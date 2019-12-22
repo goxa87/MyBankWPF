@@ -26,3 +26,8 @@ Linq to Entities
 linq to Object
 delegate/event
 Exceptions
+
+Паттерны :
+  Фабрика
+  Внедрение зависимостей
+  MVP
