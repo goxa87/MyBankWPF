@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace MyBankModel
 {
     /// <summary>
-    /// тип ссуд
+    /// шаблон для внедрения в модель сохранения кредита
     /// </summary>
-    public interface IBankCredit
+    public interface IInjection
     {
+        void Save(IBankCredit credit);
     }
 }

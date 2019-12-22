@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="IBankClient.cs" />
     <Compile Include="IBnakCredit.cs" />
+    <Compile Include="InjectionPattern\SaveCredit.cs" />
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
@@ -117,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="InjectionPattern\IInjection.cs" />
+    <Compile Include="PatternMVP\IModelCredit.cs" />
+    <Compile Include="PatternMVP\IViewCredit.cs" />
+    <Compile Include="PatternMVP\ModelCredit.cs" />
+    <Compile Include="PatternMVP\Presenter.cs" />
     <Compile Include="SelectionArgs.cs" />
     <Compile Include="Selections.xaml.cs">
       <DependentUpon>Selections.xaml</DependentUpon>
@@ -129,7 +135,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreditWindow.xaml">
+    <Page Include="PatternMVP\CreditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,7 +162,7 @@
     <Compile Include="CreditList.xaml.cs">
       <DependentUpon>CreditList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreditWindow.xaml.cs">
+    <Compile Include="PatternMVP\CreditWindow.xaml.cs">
       <DependentUpon>CreditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frames\ClientPage.xaml.cs">

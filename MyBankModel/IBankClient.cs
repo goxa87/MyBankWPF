@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyBankModel
 {
-    interface IBankClient
+    /// <summary>
+    /// тип клиентов 
+    /// </summary>
+    public interface IBankClient
     {
 
     }

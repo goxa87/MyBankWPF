@@ -60,7 +60,7 @@ namespace MyBankModel.Frames
         /// <param name="e"></param>
         private void BtnAddLizing_Click(object sender, RoutedEventArgs e)
         {
-            CreditWindow CW = new CreditWindow(this.lvFirms.SelectedItem);
+            CreditWindow CW = new CreditWindow(this.lvFirms.SelectedItem as IBankClient);
             CW.Show();
         }
 

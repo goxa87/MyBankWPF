@@ -26,8 +26,7 @@ namespace MyBankModel.Frames
         {
             InitializeComponent();
             try
-            {
-                
+            {                
                 App.context.Clients.Load();
                 lvClients.ItemsSource = App.context.Clients.Local.ToBindingList<Clients>();
                
@@ -63,7 +62,7 @@ namespace MyBankModel.Frames
         /// <param name="e"></param>
         private void BtnAddLizing_Click(object sender, RoutedEventArgs e)
         {
-            CreditWindow CW = new CreditWindow(this.lvClients.SelectedItem);
+            CreditWindow CW = new CreditWindow(this.lvClients.SelectedItem as IBankClient);
             CW.Show();
         }
 
