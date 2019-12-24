@@ -7,35 +7,48 @@ using System.Threading.Tasks;
 namespace MyBankModel
 {
     /// <summary>
+    /// делегат для работы с экземплярами кредитных объектов
+    /// </summary>
+    /// <param name="credit"></param>
+    public delegate void CreditHandler(IBankCredit credit);
+
+    /// <summary>
     /// Шаблон для модели добавления кредита
     /// </summary>
-    interface IModelCredit
+    public interface IModelCredit
     {
         /// <summary>
         /// клиент для которгог создается кредит
         /// </summary>
         IBankClient Client { get; }
         /// <summary>
-        /// сумма
+        /// сумма операции кредита . Вностияся для обработки
         /// </summary>
         int Sum { get; set; }
         /// <summary>
-        /// процент
+        /// процент ставки по кредиту. Вностися для обработки
         /// </summary>
         int Loan { get; set; }
         /// <summary>
         /// цель кредита
         /// </summary>
-        string Terget { get; set; }
+        string Target { get; set; }
         /// <summary>
-        /// вип бонус если есть
+        /// вип бонус (минус списания по кредиту) если есть
         /// </summary>
         int VipBonus { get; set; }
 
         /// <summary>
-        /// хранит метод сохранения
+        /// Внедряемый объект, который выполняет операции с данными модели
         /// </summary>
-        IInjection injection { get; set; }
+        IInjection Injection { get; set; }
+
+        // здесь второй вриант с использованием делегата
+
+            /// <summary>
+            /// делегат на обработку кредита
+            /// </summary>
+        CreditHandler creditHandler { get; set; }
 
         /// <summary>
         /// Запускает сохранение

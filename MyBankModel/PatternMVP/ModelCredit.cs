@@ -26,7 +26,7 @@ namespace MyBankModel
             /// <summary>
             /// цель
             /// </summary>
-        public string Terget { get; set; }
+        public string Target { get; set; }
         /// <summary>
         /// вип бонус
         /// </summary>
@@ -36,16 +36,21 @@ namespace MyBankModel
         /// класс который выполняет сохранение кредита к клиенту 
         /// (ПАТТЕРН ВНЕДРЕНИЕ ЗАВИСИМОСТЕЙ)
         /// </summary>
-        public IInjection injection { get ; set ; }
+        public IInjection Injection { get ; set ; }
+
+        /// <summary>
+        /// делегат для выполнения операций с экземплярами кредита
+        /// </summary>
+        public CreditHandler creditHandler { get; set; }
 
         /// <summary>
         /// Создание модели
         /// </summary>
         /// <param name="cl1">клиент для которого будет выполнен добавление</param>
-        public ModelCredit(IBankClient cl1)
+        public ModelCredit(IBankClient cl1, IInjection injClass)
         {
             Client = cl1;
-            injection = new SaveCredit();
+            Injection = injClass;
         }
 
         /// <summary>
@@ -60,17 +65,21 @@ namespace MyBankModel
             {
                 case Clients c:
                     {
-                        credit = ClientsFactory.GetCredit("кр", Sum, Loan, (Client as Clients).Id, VipBonus, Terget);
+                        credit = ClientsFactory.GetCredit("кр", Sum, Loan, (Client as Clients).Id, VipBonus, Target);
                         break;
                     }
                 case Firms c:
                     {
-                        credit = ClientsFactory.GetCredit("л", Sum, Loan, (Client as Firms).Id, VipBonus, Terget);
+                        credit = ClientsFactory.GetCredit("л", Sum, Loan, (Client as Firms).Id, VipBonus, Target);
                         break;
                     }
             }
 
-            injection.Save(credit); // Выполнение логики
+            Injection.Save(credit); // Выполнение логики для сохранения из объекта класса
+
+            // выполнение логики путем зауска делегата
+
+            creditHandler?.Invoke(credit);
 
         }
     }

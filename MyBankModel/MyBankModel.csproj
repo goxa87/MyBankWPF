@@ -102,6 +102,7 @@
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Methods\CreditObjectOperations.cs" />
     <Compile Include="Methods\Handlers.cs" />
     <Compile Include="MyDb.Context.cs">
       <AutoGen>True</AutoGen>

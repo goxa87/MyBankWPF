@@ -27,7 +27,7 @@ namespace MyBankModel
         public Presenter(IViewCredit v)
         {
             view = v;
-            model = new ModelCredit(v.Client);
+            model = new ModelCredit(v.Client, new SaveCredit());
         }
 
         /// <summary>
@@ -47,10 +47,16 @@ namespace MyBankModel
                 int temp = 0;
                 int.TryParse(view.VipBonus, out temp);
                 model.VipBonus = temp;
-                model.Terget = view.Comment;
+                model.Target = view.Comment;
 
-            
+
                 // метод из модели который запускает внедренную зависимость
+                // подставляем новые методы  для делегата 
+                model.creditHandler += CreditObjectOperations.SaveTxt;
+                model.creditHandler += CreditObjectOperations.SaveDat;
+                // добавление экземпляра для обработки
+                model.Injection = new SaveCredit();
+                // запуск процесса обработки нажатия клавиши
                 model.Run();
                 MessageBox.Show("Успешно добавлено");
                 (view as Window).Close();
