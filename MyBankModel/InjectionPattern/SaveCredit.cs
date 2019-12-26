@@ -20,7 +20,7 @@ namespace MyBankModel
         /// <summary>
         /// сохранение кредита
         /// </summary>
-        /// <param name="credit"></param>
+        /// <param name="credit">кредит для сохранения</param>
         public void Save(IBankCredit credit)
         {
             //в зависимости от типа добавить в БД
@@ -39,9 +39,10 @@ namespace MyBankModel
                         break;
                     }
                 default:
-                    throw new FormatException("Неверный формат представления объекта кредит");
+                    throw new ArgumentException("Неверный формат представления объекта кредит");
             }
-            Debug.WriteLine("Дошел нормально");
+
+            //Debug.WriteLine("Дошел нормально");
         }
     }
 }

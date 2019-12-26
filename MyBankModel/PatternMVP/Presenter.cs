@@ -31,7 +31,7 @@ namespace MyBankModel
         }
 
         /// <summary>
-        /// Выполнение работы на 
+        /// Выполнение обработки 
         /// </summary>
         public void DoWork()
         {
@@ -54,7 +54,7 @@ namespace MyBankModel
                 // подставляем новые методы  для делегата 
                 model.creditHandler += CreditObjectOperations.SaveTxt;
                 model.creditHandler += CreditObjectOperations.SaveDat;
-                // добавление экземпляра для обработки
+                // добавление экземпляра для обработки с помощью класса
                 model.Injection = new SaveCredit();
                 // запуск процесса обработки нажатия клавиши
                 model.Run();

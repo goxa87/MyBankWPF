@@ -16,15 +16,15 @@ namespace MyBankModel
         /// </summary>
         public IBankClient Client { get ; }
         /// <summary>
-        /// сумма
+        /// сумма кредита
         /// </summary>
         public int Sum { get ; set ; }
         /// <summary>
-        /// процент
+        /// процентная ставка на кредит
         /// </summary>
         public int Loan { get ; set ; }
             /// <summary>
-            /// цель
+            /// цель кредитования
             /// </summary>
         public string Target { get; set; }
         /// <summary>

@@ -11,12 +11,21 @@ namespace MyBankModel
     /// </summary>
     public interface IViewCredit
     {
+        /// <summary>
+        /// Сумма кредита
+        /// </summary>
         string Summa { get; set; }
-
+        /// <summary>
+        /// процентная ставка по кредиту
+        /// </summary>
         string Loan { get; set; }
-
+        /// <summary>
+        /// бонус для уменьшения платежа
+        /// </summary>
         string VipBonus { get; set; }
-
+        /// <summary>
+        /// комментарий
+        /// </summary>
         string Comment { get; set; }
         /// <summary>
         /// клиент для которго создается кредит
