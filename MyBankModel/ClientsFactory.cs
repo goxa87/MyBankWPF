@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBankModel
 {
-    class ClientsFactory
+    public class ClientsFactory
     {
         /// <summary>
         /// получение клиента

@@ -19,7 +19,12 @@ namespace MyBankModel
             : base("name=MyDb")
         {
         }
-    
+
+        public MyDb(string path)
+            : base(path)
+        {
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

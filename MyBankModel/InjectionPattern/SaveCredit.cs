@@ -21,21 +21,21 @@ namespace MyBankModel
         /// сохранение кредита
         /// </summary>
         /// <param name="credit">кредит для сохранения</param>
-        public void Save(IBankCredit credit)
+        public void Save(IBankCredit credit,MyDb db)
         {
             //в зависимости от типа добавить в БД
             switch (credit)
             {
                 case Credits c:
                     {
-                        App.context.Credits.Add(c);
-                        App.context.SaveChanges();
+                        db.Credits.Add(c);
+                        db.SaveChanges();
                         break;
                     }
                 case Lizings c:
                     {
-                        App.context.Lizings.Add(c);
-                        App.context.SaveChanges();
+                        db.Lizings.Add(c);
+                        db.SaveChanges();
                         break;
                     }
                 default:

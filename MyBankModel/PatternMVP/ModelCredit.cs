@@ -75,7 +75,7 @@ namespace MyBankModel
                     }
             }
 
-            Injection.Save(credit); // Выполнение логики для сохранения из объекта класса
+            Injection.Save(credit,App.context); // Выполнение логики для сохранения из объекта класса
 
             // выполнение логики путем зауска делегата
 
