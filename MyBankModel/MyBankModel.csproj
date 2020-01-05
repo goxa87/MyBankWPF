@@ -98,6 +98,9 @@
     </Compile>
     <Compile Include="IBankClient.cs" />
     <Compile Include="IBnakCredit.cs" />
+    <Compile Include="InjectionPattern\IRepository.cs" />
+    <Compile Include="InjectionPattern\RepositoryFake.cs" />
+    <Compile Include="InjectionPattern\RepositoryReal.cs" />
     <Compile Include="InjectionPattern\SaveCredit.cs" />
     <Compile Include="Lizings.cs">
       <DependentUpon>MyDb.tt</DependentUpon>

@@ -18,29 +18,30 @@ namespace MyBankModel
         }
 
         /// <summary>
-        /// сохранение кредита
+        /// Сохранение кредита в репозиторий
         /// </summary>
         /// <param name="credit">кредит для сохранения</param>
-        public void Save(IBankCredit credit,MyDb db)
+        /// <param name="repository">репозиторий куда сохраняется</param>
+        public bool Save(IBankCredit credit,IRepository repository)
         {
-            //в зависимости от типа добавить в БД
-            switch (credit)
-            {
-                case Credits c:
-                    {
-                        db.Credits.Add(c);
-                        db.SaveChanges();
-                        break;
-                    }
-                case Lizings c:
-                    {
-                        db.Lizings.Add(c);
-                        db.SaveChanges();
-                        break;
-                    }
-                default:
-                    throw new ArgumentException("Неверный формат представления объекта кредит");
-            }
+            return repository.SaveSingle(credit);
+
+            ////в зависимости от типа добавить в БД
+            //switch (credit)
+            //{
+            //    case Credits c:
+            //        {
+            //            repository.SaveSingle(c);
+            //            break;
+            //        }
+            //    case Lizings c:
+            //        {
+            //            repository.SaveSingle(c);
+            //            break;
+            //        }
+            //    default:
+            //        throw new ArgumentException("Неверный формат представления объекта кредит");
+            //}
 
             //Debug.WriteLine("Дошел нормально");
         }

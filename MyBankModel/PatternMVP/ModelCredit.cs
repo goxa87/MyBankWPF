@@ -66,6 +66,7 @@ namespace MyBankModel
                 case Clients c:
                     {
                         credit = ClientsFactory.GetCredit("кр", Sum, Loan, (Client as Clients).Id, VipBonus, Target);
+                        
                         break;
                     }
                 case Firms c:
@@ -74,8 +75,8 @@ namespace MyBankModel
                         break;
                     }
             }
-
-            Injection.Save(credit,App.context); // Выполнение логики для сохранения из объекта класса
+            Injection.Save(credit, new RepositoryReal(App.context)); // Выполнение логики для сохранения из объекта класса
+            //Injection.Save(credit,App.context); // Выполнение логики для сохранения из объекта класса
 
             // выполнение логики путем зауска делегата
 

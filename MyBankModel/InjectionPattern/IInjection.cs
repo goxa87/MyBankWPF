@@ -11,6 +11,6 @@ namespace MyBankModel
     /// </summary>
     public interface IInjection
     {
-        void Save(IBankCredit credit, MyDb db);
+        bool Save(IBankCredit credit, IRepository db);
     }
 }
